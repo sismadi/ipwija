@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh GUI Sederhana</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="tampilkanPesan()">Klik Saya</button>
+        <p id="pesan"></p>
+    </div>
+
+    <script>
+        function tampilkanPesan() {
+            document.getElementById('pesan').textContent = 'Halo, Anda telah mengklik tombol!';
+        }
+    </script>
+</body>
+</html>
