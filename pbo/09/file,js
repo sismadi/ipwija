@@ -1,0 +1,18 @@
+const fs = require('fs');
+// Menulis ke file
+fs.writeFile('contoh.txt', 'Hello, world!', (err) => {
+    if (err) throw err;
+    console.log('File telah ditulis.');
+});
+
+// Membaca dari file
+fs.readFile('contoh.txt', 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log('Isi file:', data);
+});
+
+// Menambah ke file
+fs.appendFile('contoh.txt', '\nMenambah baris baru.', (err) => {
+    if (err) throw err;
+    console.log('Data telah ditambahkan ke file.');
+});
