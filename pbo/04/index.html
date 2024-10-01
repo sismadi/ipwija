@@ -1,23 +1,24 @@
 <div id="content"> hi </div>
 
 <script>
-data={nama:'data'}; // public
-
+data={nama:'data1'}; // public
 
 d={
-data:{nama:'data'}, // private
-model:{id:1},
+data:{nama:'data2'}, // private
+
+model:{
+  id:1
+},
 view:{},
 controller:{
 getter:function(){
-  // document.getElementById('content').innerHTML='sss';
   document.getElementById('content').innerHTML=d.model.id;
 },
 },
 }; // enkapsulasi
 
-d.model.id=10; // setter
-d.controller.setter();
+d.model.id=d.data.nama; // setter
+d.controller.getter();
 
 obj=d.model;
 obj.id=20
