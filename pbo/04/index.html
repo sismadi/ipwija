@@ -1,0 +1,25 @@
+<div id="content"> hi </div>
+
+<script>
+data={nama:'data'}; // public
+
+
+d={
+data:{nama:'data'}, // private
+model:{id:1},
+view:{},
+controller:{
+getter:function(){
+  // document.getElementById('content').innerHTML='sss';
+  document.getElementById('content').innerHTML=d.model.id;
+},
+},
+}; // enkapsulasi
+
+d.model.id=10; // setter
+d.controller.setter();
+
+obj=d.model;
+obj.id=20
+
+</script>
