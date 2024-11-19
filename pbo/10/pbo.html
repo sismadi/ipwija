@@ -31,10 +31,17 @@
       document.getElementById('username').value='';
       document.getElementById('pin').value='';
   },
+    signform:function(){
+      document.getElementById('content').innerHTML=model.view.signform('arr');
+      document.getElementById('pin').value='';
+  },
+    
 
   },
 
   }
 
+
+pbo.controller.signform();
 
  </script>
