@@ -31,9 +31,12 @@
       document.getElementById('username').value='';
       document.getElementById('pin').value='';
   },
-    signform:function(){
-      document.getElementById('content').innerHTML=pbo.view.signform('arr');
-  },
+    signform:function(){document.getElementById('content').innerHTML=pbo.view.signform('arr'); },
+    cancel:function(){document.getElementById('cancel').onclick(){
+document.getElementById('username').value='';
+document.getElementById('pin').value='';
+      
+    } },
     
 
   },
