@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.input-form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+
+input {
+    width: 90%;
+    max-width: 90%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    width: 48%;
+    padding: 10px;
+    margin: 10px 1%;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+button#cancel {
+    background-color: #6c757d;
+}
+
+button#cancel:hover {
+    background-color: #5a6268;
+}
+
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        const pbo = {
+            // Model untuk database
+            model: {
+                mahasiswa: [
+                    { username: 'wildan', pin: 'wildan123' },
+                    { username: 'mikel', pin: 'mikel123' },
+                    { username: 'jarwo', pin: 'hiks123' },
+                ],
+            },
+            // View untuk tampilan
+            view: {
+                signform: function () {
+                    return `
+                        <div class="input-form">
+                            Username: <input type='text' id='username'><br/>
+                            Pin: <input type='password' id='pin'><br/>
+                            <button id='login'>Login</button>
+                            <button id='cancel'>Cancel</button>
+                        </div>
+                    `;
+                },
+            },
+
+            // Controller untuk perlakuan terhadap view dan database
+            controller: {
+                init: function () {
+                    const app = document.getElementById('app');
+                    app.innerHTML = pbo.view.signform();
+                    
+                    document.getElementById('login').addEventListener('click', this.signin);
+                    document.getElementById('cancel').addEventListener('click', this.signout);
+                },
+                
+                signin: function () {
+                    const username = document.getElementById('username').value;
+                    const pin = document.getElementById('pin').value;
+
+                    const userFound = pbo.model.mahasiswa.find(
+                        (user) => user.username === username && user.pin === pin
+                    );
+
+                    if (userFound) {
+                        alert('Login berhasil!');
+                    } else {
+                        alert('Username atau Pin salah!');
+                    }
+                },
+                
+                signout: function () {
+                    document.getElementById('username').value = '';
+                    document.getElementById('pin').value = '';
+                },
+            },
+        };
+
+        // Inisialisasi programnya
+        pbo.controller.init();
+    </script>
+</body>
+</html>
